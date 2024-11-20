@@ -31,4 +31,14 @@ jobs:
           python -m pip install --upgrade pip
           pip install pandas matplotlib
           python analyze.py
+
+      - name: Commit and push results
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          git add top10username.png
+          git commit -m "update top10username.png"
+          git push
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         
