@@ -39,11 +39,8 @@ jobs:
           git config --local user.name "GitHub Action"
           git add top10username.png
           git commit -m "update top10username.png"
-      - run: ls
-      - run: git status
       - name: Push changes
         uses: ad-m/github-push-action@master
-        if: ${{ steps.commit-files.outputs.hasChange == 'true' }}
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           branch: ${{ github.ref }}
